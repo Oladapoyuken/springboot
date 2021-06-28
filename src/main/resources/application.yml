@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: springboot
+
+server:
+  port: 443
+  ssl:
+    key-store: keystore.p12
+    key-store-password: bestofkings
+    key-store-type: PKCS12
+    key-alias: tomcat
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - dev
+  application:
+    name: springboot
+server:
+  port: 9090
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - prod
+  application:
+    name: springboot
+server:
+  port: 4431

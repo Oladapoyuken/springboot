@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View all products</title>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $.getJSON("https://localhost:443/product", function(result){
+                $.each(result, function(key,value) {
+                    $("#productsJson").append(value.id+" "+value.name+" ");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="productsJson"></div>
+</body>
+</html>
